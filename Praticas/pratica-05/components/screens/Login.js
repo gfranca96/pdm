@@ -3,12 +3,13 @@ import { View } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
 import Titulo from '../Titulo';
 
-const Login = () => {
+const Login = (props) => {
   const [email, setEmail] = useState();
   const [senha, setSenha] = useState();
 
   const handleEntrar = () => {
     console.log(email, senha);
+    props.onLogin();
   };
 
   return (
@@ -31,7 +32,7 @@ const Login = () => {
         value={senha}
         onChangeText={(text) => setSenha(text)}
       />
-      <Button onPress={handleEntrar} >Entrar</Button>
+      <Button onPress={handleEntrar}>Entrar</Button>
     </View>
   );
 };
